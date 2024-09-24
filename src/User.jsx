@@ -1,17 +1,14 @@
-const User = () => {
-
-    const info = {
-        myName: 'Steven',
-        myLastName: 'Prauca',
-        myAge: 21,
-    };
+const User = ({name, lastName, image}) => {
 
     const isAuthenticated = true;
 
     return (
         <>
             {isAuthenticated ? (
-                <h1>Welcome {info.myName}!</h1>
+                <>
+                    <h1>{name} {lastName}</h1>
+                    <img src = {image}/>
+                </>
             ) : (
                 <h1>Please sign In</h1>
             )}
@@ -19,4 +16,4 @@ const User = () => {
     );
 }
 
-export default User;
+export default User;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
