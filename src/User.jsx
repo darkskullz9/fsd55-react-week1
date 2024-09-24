@@ -1,10 +1,22 @@
 const User = () => {
+
+    const info = {
+        myName: 'Steven',
+        myLastName: 'Prauca',
+        myAge: 21,
+    };
+
+    const isAuthenticated = true;
+
     return (
         <>
-            <h1>Steven</h1>
-            <p>Dev Front-End</p>
+            {isAuthenticated ? (
+                <h1>Welcome {info.myName}!</h1>
+            ) : (
+                <h1>Please sign In</h1>
+            )}
         </>
     );
 }
 
-export default User
+export default User;
