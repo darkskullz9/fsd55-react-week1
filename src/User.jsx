@@ -16,4 +16,4 @@ const User = ({name, lastName, image}) => {
     );
 }
 
-export default User;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+export default User;

@@ -1,26 +1,40 @@
 import './App.css'
-import User from './User.jsx'
+import { useState } from 'react';
+import { sculptureList } from './data.js';
 
-function App() {
-  
-  const bart = {
-    name: 'Bart',
-    lastName: 'Simpson',
-    image: "./assets/bart.webp"
+export default function Gallery() {
+  const [index, setIndex] = useState(0);
+  const [showMore, setShowMore] = useState(false);
+
+  function handleNextClick() {
+    setIndex(index + 1);
   }
 
-  const homer = {
-    name: 'Homer',
-    lastName: 'Simpson',
-    image: "./assets/homer.webp"
+  function handleMoreClick() {
+    setShowMore(!showMore);
   }
 
+  let sculpture = sculptureList[index];
   return (
     <>
-      <User {...bart}/>
-      <User {...homer}/>
+      <button onClick={handleNextClick}>
+        Suivant
+      </button>
+      <h2>
+        <i>{sculpture.name} </i>
+        par {sculpture.artist}
+      </h2>
+      <h3>
+        ({index + 1} sur {sculptureList.length})
+      </h3>
+      <button onClick={handleMoreClick}>
+        {showMore ? 'Masquer' : 'Afficher'} les détails
+      </button>
+      {showMore && <p>{sculpture.description}</p>}
+      <img
+        src={sculpture.url}
+        alt={sculpture.alt}
+      />
     </>
-  )
+  );
 }
-
-export default App
